@@ -14,4 +14,20 @@ for (const index in sortedListOne) {
     }
 }
 
+let similarityScore: number = 0;
+
+for (const i in listOne) {
+    const listOneNumber: number = listOne[i];
+    let appearances: number = 0;
+
+    for (const j in listTwo) {
+        if (listTwo[j] === listOneNumber) {
+            appearances++;
+        }
+    }
+
+    similarityScore += (listOneNumber * appearances);
+}
+
 document.querySelector('#app').innerHTML = `The total distance: ${totalDistance}`;
+document.querySelector('#app').innerHTML = `<br />Similarity score: ${similarityScore}`;
